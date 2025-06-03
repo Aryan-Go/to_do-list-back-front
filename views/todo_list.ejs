@@ -8,16 +8,26 @@
 
 </head>
 <body>
-    <div class="flex flex-row justify-start items-center">
-        <% rows.forEach(row =>{%>
-            <div class="flex flex-col justify-center items-center w-max h-max bg-red-50 m-[1rem] p-[1rem]">
-                <div class="font-bold text-3xl"><%= row.title %></div>
-                <div><%= row.description %></div>
-            </div>
-        <% }) %>
+    <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-row justify-start items-center">
+            <% rows.forEach(row =>{%>
+                <div class="flex flex-col justify-center items-center w-max h-max bg-red-50 m-[1rem] p-[1rem]">
+                    <div class="font-bold text-3xl"><%= row.title %></div>
+                    <div><%= row.description %></div>
+                    <div>id = <%= row.id %></div>
+                </>
+            <% }) %>
+        </div>
+        <div class="flex flex-col justify-start items-center">
+            <form action="/todo_add">
+                <button class="bg-" type="submit">Add new task</button><br><br>
+            </form>
+            <form action="/delete_data" method="post">
+                <label for="id">Write the task number which you want to delete</label><br>
+                <input type="number"class="id" name="id" placeholder="ID here"><br>
+                <button type="submit">Done</button>
+            </form>
+        </div>
     </div>
-    <form action="/todo_add">
-        <button class="bg-" type="submit">Add new task</button>
-    </form>
 </body>
 </html>

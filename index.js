@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
-import { insert_data,get_data } from "./config/database.js";
+import { insert_data,get_data,delete_data } from "./config/database.js";
 
 // app.get('/signup', (req, res) => {
 //     res.send('You are on the signup page')
@@ -36,6 +36,12 @@ app.get("/todo_list", async (req, res) => {
     const rows = await get_data();
     res.render("todo_list.ejs" , {rows});
 })
+
+app.post("/delete_data", async (req, res) => {
+  const id = req.body.id;
+  delete_data(id);
+  res.redirect("/todo_list");
+});
 
 app.listen(PORT, (err) => {
     if (err) {

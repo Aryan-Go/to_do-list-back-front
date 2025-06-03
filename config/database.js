@@ -32,3 +32,11 @@ export const get_data = async () => {
     console.log(rows);
     return rows;
 }
+
+export const delete_data = async (id2) => {
+    await db.query(`USE todo;`);
+    await db.query(`DELETE FROM todo_list
+        WHERE id = ${id2};`);
+    id--;
+    console.log("Data successfully deleted");
+}
