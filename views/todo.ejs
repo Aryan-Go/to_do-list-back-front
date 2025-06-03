@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a todo</title>
+</head>
+<body>
+    <h1>Insert your task here</h1>
+    <form action="/added" method="post">
+        <label for="title">What is the title of the task</label><br>
+        <input class="title" placeholder="Title here" required name="title"><br><br>
+
+        <label for="desc">What is the description</label><br>
+        <textarea class="desc" name="description"></textarea><br><br>
+
+        <button class="submit">Submit</button>
+    </form>
+</body>
+</html>
